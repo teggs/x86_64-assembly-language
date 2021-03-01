@@ -1,9 +1,9 @@
 section .data   
-  text db "Hello, world!",0xa ;0xa equals 10, stands for '\n'
+  text db "Hello, world!",0xa ;0xa equals 10, stands for '\n'.
   len equ $- text
   
 section .text           
-  global _start:  ;start stands for main in c/c++, it better to keep start rather than using other symbols.
+  global _start:  ;start stands for main in c/c++, unchangeable.
 _start:  
   mov rax, 1      
   mov rdi, 1       
