@@ -1,6 +1,6 @@
 section .data ;see Appendix, Three Sections of x84_64 Assembly File
   text1 db "Input your name: "
-  len1 equ $- text1 ;len1 should be calculated first then text2 should be defined. Otherwise text2 will follow the text1 and the len1 will equal to len2.
+  len1 equ $- text1 ;len1 should be calculated first then text2 should be defined. Otherwise len1 will equal to len1 + len2.
   text2 db "Hello, "
   len2 equ $- text2
 
