@@ -15,7 +15,7 @@ _start:
   mov rdi, 0
   syscall
   
-  /*
+  COMMENT delimiter
   Appendix: System Call List
   syscall    ID(rax) ARG1(rdi)       ARG2(rsi)  ARG3(rdx)  ARG4(r10)
   sys_read     0     file descriptor buffer     count
@@ -31,4 +31,4 @@ _start:
   Therefore, if one wants to output a string. He needs to invoke sys_write, that is,
   rax = 1, rdi = 1, rsi = text, rdx = len
   This is the same reason for sys_exit.
-  */
+  delimiter
