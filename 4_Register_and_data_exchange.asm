@@ -17,7 +17,7 @@
 ;  shr rax, 16
 ;  mov [addr], al
 
-;The following code shows how to rewrite '0000\n' to 'AB00\n' in the x86_64 system.
+;The following code shows how to overwrite '0000\n' by 'AB00\n' in the x86_64 system.
 section .data
   digit db 48,48,48,48,0  ;which will print '0000\n'.
  
