@@ -17,7 +17,7 @@ _start:
   ;The digit is 'B0\n' now.
   
   pop rax ;give the last pushed one i.e. 'A' to the rax. The stack is now empty again.
-  mov [digit+1], al ;replace the first '0' by the value i.e. 'A' in al.
+  mov [digit+1], al ;replace the second '0' by the value i.e. 'A' in al.
   ;The digit is 'BA\n' now.
   
   mov rax, 1
