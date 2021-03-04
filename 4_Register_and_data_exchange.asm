@@ -23,9 +23,9 @@ section .text
   global _start
 _start:
   mov rax, 0x4241 ;the value in the rax right now is NNNNNNBA, whereas N stands for none.
-  mov [digit], al ;change the 0 in the first address by the al value i.e. A
-  mov [digit+1], ah ;change the 0 in the second address by the ah value i.e. B
-  ;you can also use mov[digit], ax to replace the two previous lines, since ax takes up two addresses.
+  mov [digit], al ;change the first 0 to the al value i.e. A
+  mov [digit+1], ah ;change the second 0 to the ah value i.e. B
+  ;you can also use "mov[digit], ax" to replace the two previous lines, since ax takes up two addresses.
   
   mov rax, 1
   mov rdi, 1
