@@ -11,9 +11,11 @@
 
 ;3.Registers take up 8 bytes, which means it will also occupy 8 contiguous addresses if you want to move the value in rax to one specific address.
 ;  However, in most of the time, we only need the lower bit value of rax. So we use other nouns to stand for these lower bits.
-;  Let's use 1-8 to stands for each byte of the rax from lower bit to higher bit. In this case, al->1; ah->2; ax->1-2; eax->1-4 and rax->1-8. 
-;  If we want to get the third or fifth byte in rax, we need to do the right shift operation first. Right shift 8 bits to get the third byte to al, for example.
-
+;  Let's denote each byte of one rax from lower bit to higher bit by number 1-8. In this case, al->1; ah->2; ax->1-2; eax->1-4 and rax->1-8. 
+;  If we want to get the third or fifth byte in rax, we need to do the right shift operation first. 
+;  For example, if we want to get the third bytes of the rax, we may first do right shift by 16 bits i.e. two byte and then invoking the value in al.
+;  shr rax, 16
+;  mov [addr], al
 
 ;The following code shows how to rewrite '0000\n' to 'AB00\n' in the x86_64 system.
 section .data
