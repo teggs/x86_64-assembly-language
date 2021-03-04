@@ -11,5 +11,28 @@
 
 ;3.Registers take up 8 bytes, which means it will also occupy 8 contiguous addresses if you want to move the value in rax to one specific address.
 ;  However, in most of the time, we only need the lower bit value of rax. So we use other nouns to stand for these lower bits.
-;  Let use 1-8 to stands for each byte of the rax from lower bit to higher bit. We use: al->1; ah->2; eax->1-4 and rax->1-8. 
+;  Let's use 1-8 to stands for each byte of the rax from lower bit to higher bit. In this case, al->1; ah->2; ax->1-2; eax->1-4 and rax->1-8. 
 ;  If we want to get the third or fifth byte in rax, we need to do the right shift operation first. Right shift 8 bits to get the third byte to al, for example.
+
+
+;The following code shows how to rewrite '0000\n' to 'AB00\n' in the x86_64 system.
+section .data
+  digit db 48,48,48,48,0  ;which will print '0000\n'.
+ 
+section .text
+  global _start
+_start:
+  mov rax, 0x4241 ;the value in the rax right now is NNNNNNBA, whereas N stands for none.
+  mov [digit], al ;change the 0 in the first address by the al value i.e. A
+  mov [digit+1], ah ;change the 0 in the second address by the ah value i.e. B
+  ;you can also use mov[digit], ax to replace the two previous lines, since ax takes up two addresses.
+  
+  mov rax, 1
+  mov rdi, 1
+  mov rsi, digit
+  mov rdx, 5
+  syscall
+  
+  mov rax, 60
+  mov rdi, 0
+  syscall
